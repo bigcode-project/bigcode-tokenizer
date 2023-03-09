@@ -9,15 +9,14 @@ from tokenizers.models import BPE
 from tokenizers.trainers import BpeTrainer
 
 ds = load_dataset("bigcode/the-stack-march-sample", split="train")
-
 SPECIAL_TOKENS = [
     "<|endoftext|>",
-    "<fim-prefix>",
-    "<fim-middle>",
-    "<fim-suffix>",
-    "<fim-pad>",
+    "<fim_prefix>",
+    "<fim_middle>",
+    "<fim_suffix>",
+    "<fim_pad>",
     "<filename>",
-    "<gh-stars>",
+    "<gh_stars>",
     "<issue_start>",
     "<issue_comment>",
     "<issue_closed>",
@@ -29,6 +28,7 @@ SPECIAL_TOKENS = [
     "<commit_before>",
     "<commit_msg>",
     "<commit_after>",
+    "<reponame>",
 ]
 
 def batch_iterator(dataset, batch_size=1000): # BATCH SIZE HAS TO DIVIDE NUM_ROWS
