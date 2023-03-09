@@ -8,7 +8,7 @@ from tokenizers import (
 from tokenizers.models import BPE
 from tokenizers.trainers import BpeTrainer
 
-ds = load_dataset("bigcode/the-stack-march-sample", split="train")
+ds = load_dataset("bigcode/the-stack-march-sample-special-tokens-stripped", split="train")
 SPECIAL_TOKENS = [
     "<|endoftext|>",
     "<fim_prefix>",
@@ -38,9 +38,9 @@ def batch_iterator(dataset, batch_size=1000): # BATCH SIZE HAS TO DIVIDE NUM_ROW
 VOCAB_SIZE = 49_152
 
 digits_pretokenizer = pre_tokenizers.Digits(individual_digits=True)
-bytelevel_pretokenizer = pre_tokenizers.ByteLevel(add_prefix_space=True, use_regex=True)
+bytelevel_pretokenizer = pre_tokenizers.ByteLevel(add_prefix_space=False, use_regex=True)
 
-bytelevel_decoder = decoders.ByteLevel(add_prefix_space=True, use_regex=True)
+bytelevel_decoder = decoders.ByteLevel(add_prefix_space=False, use_regex=True)
 
 tokenizer = Tokenizer(BPE())
 
